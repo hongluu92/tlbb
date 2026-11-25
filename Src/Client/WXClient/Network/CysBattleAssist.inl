@@ -17,7 +17,7 @@ DBC::DBCFile* Table(const char* name) {
     return it->second.get();
 }
 int Num(DBC::DBCFile* t,int row,int col){return t->Search_Posistion(row,col)->iValue;}
-int Limit(LuaPlus::LuaState* s){s->PushInteger(50);return 1;}
+int Limit(LuaPlus::LuaState* s){s->PushInteger(1);return 1;}
 void Array(LuaPlus::LuaState* s,const std::vector<int>& values){s->NewTable();for(size_t i=0;i<values.size();++i){s->PushInteger(values[i]);s->RawSetI(-2,(int)i+1);}}
 const char* keys[]={"useskill","usepotiont","usepotion","usepotionc","useRecoverSkill","usePetSkill","useSwitch","usepotionofft","usepotionoff","usepotionoffc"};
 std::vector<int> cfg[11], incoming[11];
