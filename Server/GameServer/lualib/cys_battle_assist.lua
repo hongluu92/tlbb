@@ -71,9 +71,9 @@ function M.stop(h,reason)
     if reason then h:notify_tips(reason) end
 end
 function M.start(s,h,revision)
-    if revision~=(h.cys_assist_revision or 1) or h:is_die() or h:get_level()<50
-        or h:get_menpai()==9 or h:get_team_follow_flag() or h._leaving then
-        h:notify_tips('Tự chiến đấu cần cấp 50, đã gia nhập môn phái và không theo đội.');return M.snapshot(s,h)
+    if revision~=(h.cys_assist_revision or 1) or h:is_die() or h:get_level()<1
+        or h:get_team_follow_flag() or h._leaving then
+        h:notify_tips('Tự chiến đấu cần cấp 1, nhân vật còn sống và không theo đội.');return M.snapshot(s,h)
     end
     h.cys_assist_script=s;h.cys_assist_active=true;h.zdzd_enabled=nil
     h.cys_assist_origin=h:get_scene():get_id();h.cys_assist_tick=0;h.cys_assist_buff={}
